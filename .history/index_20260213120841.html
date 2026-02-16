@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagenes/logo-biocenter.png" type="image/png">
+    <title>Biocenter Salud Ocupacional | Bienestar Empresarial</title>
+    <meta name="description" content="Especialistas en salud ocupacional y bienestar integral en el Tolima.">
+    <link rel="stylesheet" href="diseno/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<!-- ================= INCIO DEL PQR  ================= -->
+<div class="pqr-modal" id="pqrModal">
+  <div class="pqr-box">
+
+    <button class="pqr-close" id="closePqr">&times;</button>
+
+    <h2>PQR y Calificaciones</h2>
+    <p class="pqr-sub">
+      Tu opinión es muy importante para nosotros 💙
+    </p>
+
+    <form action="PHP/enviar_pqr.php" method="POST">
+
+      <div class="pqr-group">
+        <label>Nombre completo</label>
+        <input type="text" name="nombre" required>
+      </div>
+
+      <div class="pqr-group">
+        <label>Correo electrónico</label>
+        <input type="email" name="correo" required>
+      </div>
+
+      <div class="pqr-group">
+        <label>Tipo de solicitud</label>
+        <select name="tipo" required>
+          <option value="">Selecciona una opción</option>
+          <option>Petición</option>
+          <option>Queja</option>
+          <option>Reclamo</option>
+          <option>Felicitación</option>
+        </select>
+      </div>
+
+      <div class="pqr-group">
+        <label>Mensaje</label>
+        <textarea rows="4" name="mensaje" required></textarea>
+      </div>
+
+      <div class="pqr-rating">
+        <span>Calificación</span>
+
+        <div class="rating-stars">
+            <input type="radio" name="rating" id="star5" value="5" required>
+            <label for="star5">★</label>
+
+            <input type="radio" name="rating" id="star4" value="4">
+            <label for="star4">★</label>
+
+            <input type="radio" name="rating" id="star3" value="3">
+            <label for="star3">★</label>
+
+            <input type="radio" name="rating" id="star2" value="2">
+            <label for="star2">★</label>
+
+            <input type="radio" name="rating" id="star1" value="1">
+            <label for="star1">★</label>
+        </div>
+        </div>
+
+
+      <button class="pqr-btn">
+        <i class="fa-solid fa-paper-plane"></i> Enviar PQR
+      </button>
+
+    </form>
+  </div>
+</div>
+
+        <div class="modal-overlay" id="modalConfirm">
+            <div class="modal-box">
+                <h3 id="modalTitle"></h3>
+                    <p id="modalMsg"></p>
+                        <button class="btn-primary" id="closeModal">Aceptar</button>
+            </div>
+        </div> 
+
+
+
+<body>
+     
+
+<!-- ================= FIN DEL PQR  ================= -->
+
+
+<!-- ================= INCIO DEL HEADER ================= -->
+<header class="menu-desplegable">
+    <nav class="container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="imagenes/logo-biocenter.png" alt="Logo Biocenter">
+            </a>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="nosotros.html">Nuestra Empresa</a></li>
+            <li><a href="derechos_deberes.html">Derechos y Deberes</a></li>
+            <li><a href="capacitaciones.html">Capacitaciones</a></li>
+            <li><a href="servicios.html">Nuestros Servicios</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+             <li><a href="*">Inicio Sesi'on</a></li>
+        </ul>
+
+        <div class="nav-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+</header>
+<!-- ================= FIN DEL HEADER ================= -->
+
+
+<!-- ================= INCIO DEL CUYERPO DE LA PAGINA  ================= -->
+<section class="hero">
+    <div class="hero-content container">
+        <h1>Respaldo Integral en Salud Ocupacional y Bienestar Empresarial</h1>
+        <p>
+            Aliados estratégicos en el Tolima para la protección de sus trabajadores
+            y el cumplimiento de la normatividad legal.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="https://wa.me/573176577620" class="btn btn-primary">Agendar Cita</a>
+            <a href="contacto.html" class="btn btn-secondary">Conocer más</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ================= INFO BAR ================= -->
+<section class="info-bar">
+    <div class="info-container">
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Cra 5 N° 37 bis - 19 · Edificio Fontainebleau</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-clock"></i>
+            <span>Lunes a Viernes · 7:00 AM - 4:00 PM</span>
+        </div>
+
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <span>biocentersaludocupacional@gmail.com</span>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ================= FIN DEL CUYERPO DE LA PAGINA  ================= -->
+
+<!-- ================= INCIIO FOOTER ================= -->
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-col">
+            <img src="imagenes/logo-biocenter.png" alt="Biocenter">
+            <p>Líderes en salud ocupacional al 2026</p>
+        </div>
+
+
+        <div class="enlaces">
+            <h4>Enlaces</h4>
+            <a href="index.html">Inicio</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="servicios.html">Servicios</a>
+        </div>
+
+        <div>
+            <h4>Contacto</h4>
+            <p><a href="https://maps.app.goo.gl/pr1ibKEtwjQL5PTQ7" target="_blank" class="footer-link"><i class="fas fa-map-marker-alt"></i> Ibagué, Tolima</a></p>
+            <p><a href="mailto:biocentersaludocupacional@gmail.com" class="footer-link"> <i class="fa-solid fa-envelope-circle-check"></i> biocentersaludocupacional@gmail.com </a></p>
+            <p><i class="fab fa-whatsapp"></i> 317 657 7620</p>
+
+            <!-- PQR Link -->
+            <a href="#" id="openPqr" class="pqr-link">
+                <i class="fa-solid fa-comments"></i> PQR / Calificaciones
+            </a>
+        </div>
+    </div>
+    <div class="footer-copy">
+        © <span id="year"></span> Biocenter Salud Ocupacional · Todos los derechos reservados
+    </div>
+</footer>
+
+<!-- ================= WHATSAPP ================= -->
+<a href="https://wa.me/573176577620" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+<!-- ================= FIN ================= -->
+
+<!-- ================= FIN FOOTER ================= -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
+<script src="JS/main.js"></script>
+</body>
+</html>
