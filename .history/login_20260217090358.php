@@ -84,24 +84,19 @@ setTimeout(()=>{
 
             <button class="btn-login">
                 <i class="fa fa-sign-in-alt"></i> Iniciar Sesión
-            </button><br><br>
-            <button class="btn-regresar" id="btnRegresar">
-                <i class="fa-solid fa-xmark"></i> Regresar
+            </button>
+            <button class="btn-regresar">
+                <i class="fa fa-sign-in-alt"></i> Regresar
             </button>
 
         </form>
+        </form>
+
     </div>
 
 </div>
 
 </body>
-
-<script>
-    document.getElementById("btnRegresar").addEventListener("click", function() {
-        window.location.href = "index.html";
-    });
-</script>
-
 </html>
 
 

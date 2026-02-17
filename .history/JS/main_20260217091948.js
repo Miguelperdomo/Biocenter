@@ -128,4 +128,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+    window.addEventListener("load", function() {
+        const mensaje = document.getElementById("mensajeCita");
+
+        // Mostrar después de 2 segundos
+        setTimeout(() => {
+            mensaje.classList.add("mostrar");
+        }, 2000);
+
+        // Ocultar después de 7 segundos
+        setTimeout(() => {
+            mensaje.classList.remove("mostrar");
+        }, 7000);
+    });
+
+
+
 

@@ -1920,64 +1920,45 @@ nav {
 
 /* ----------------- AGENDAR CITA ---------------------------*/
 
-.contenedor-cita {
+.btn-cita-flotante {
     position: fixed;
-    bottom: 95px;
+    bottom: 90px;
     right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 999;
-}
-
-/* Botón más profesional */
-.btn-cita {
     background-color: #ff6b00;
-    width: 60px;
-    height: 60px;
+    color: white;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-size: 24px;
+    font-size: 22px;
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
 }
 
-.btn-cita:hover {
-    transform: scale(1.1);
-    background-color: #e65c00;
-}
-
-/* Mensaje lateral tipo burbuja */
 .mensaje-cita {
+    position: fixed;
+    bottom: 155px;
+    right: 20px;
     background: white;
-    padding: 12px 18px;
-    border-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     font-size: 14px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    white-space: nowrap;
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateY(10px);
     transition: all 0.5s ease;
+    z-index: 998;
 }
 
-/* Flechita */
-.mensaje-cita::after {
-    content: "";
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-width: 8px;
-    border-style: solid;
-    border-color: transparent transparent transparent white;
-}
-
+/* Clase activa */
 .mensaje-cita.mostrar {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
 }
+
+
+
 

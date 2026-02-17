@@ -27,41 +27,117 @@ $citas = $conn->query("SELECT * FROM citas ORDER BY fecha DESC, hora DESC");
 <title>Panel Admin</title>
 
 <style>
-body{margin:0;font-family:'Segoe UI';display:flex;background:#f1f5f9;}
-.sidebar{width:230px;background:#0f172a;height:100vh;color:white;padding:20px;}
-.sidebar a{display:block;color:white;text-decoration:none;padding:12px;margin:10px 0;border-radius:6px;}
-.sidebar a:hover{background:#2563eb;}
-.main{flex:1;padding:30px;}
+body{
+    margin:0;
+    font-family:'Segoe UI';
+    background:#f1f5f9;
+}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:30px;}
-.card{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,.1);}
-.card h3{margin:0;font-size:30px;}
+/* ===== CONTENEDOR ===== */
+.container{
+    display:flex;
+    min-height:100vh;
+}
 
-table{width:100%;border-collapse:collapse;background:white;border-radius:12px;overflow:hidden;}
-th,td{padding:12px;text-align:left;}
-th{background:#0f172a;color:white;}
+/* ===== SIDEBAR ===== */
+.sidebar{
+    width:230px;
+    background:#0f172a;
+    color:white;
+    padding:20px;
+}
 
+.sidebar h2{
+    text-align:center;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin:10px 0;
+    border-radius:6px;
+}
+
+.sidebar a:hover{
+    background:#2563eb;
+}
+
+/* ===== CONTENIDO ===== */
+.main{
+    flex:1;
+    padding:30px;
+}
+
+/* ===== CARDS ===== */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+/* ===== TABLA ===== */
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+th,td{
+    padding:12px;
+    text-align:left;
+}
+
+th{
+    background:#0f172a;
+    color:white;
+}
+
+/* ===== ESTADOS ===== */
 .estado{
     padding:6px 10px;
     border-radius:20px;
     color:white;
     font-size:12px;
 }
+
 .pendiente{background:#f59e0b;}
 .confirmada{background:#22c55e;}
 .cancelada{background:#ef4444;}
 
-.btn{padding:6px 10px;border:none;border-radius:6px;color:white;cursor:pointer;}
+/* ===== BOTONES ===== */
+.btn{
+    padding:6px 10px;
+    border:none;
+    border-radius:6px;
+    color:white;
+    cursor:pointer;
+    margin:2px;
+}
+
 .accept{background:#22c55e;}
 .cancel{background:#ef4444;}
 .delete{background:#64748b;}
 
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
 
-/* ================= RESPONSIVE PANEL ================= */
-
-@media(max-width: 900px){
-
-    body{
+    .container{
         flex-direction:column;
     }
 
@@ -70,7 +146,6 @@ th{background:#0f172a;color:white;}
         height:auto;
         display:flex;
         justify-content:space-around;
-        align-items:center;
         padding:10px;
     }
 
@@ -78,57 +153,11 @@ th{background:#0f172a;color:white;}
         display:none;
     }
 
-    .sidebar a{
-        margin:0;
-        font-size:14px;
-        padding:10px;
-    }
-
     .main{
         padding:15px;
     }
 
-    .cards{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
 }
-
-/* ================= TABLA RESPONSIVE ================= */
-
-@media(max-width:700px){
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
-    }
-
-    th,td{
-        font-size:14px;
-        padding:10px;
-    }
-
-}
-
-/* ================= BOTONES MOVIL ================= */
-
-@media(max-width:500px){
-
-    .btn{
-        display:block;
-        width:100%;
-        margin-bottom:5px;
-    }
-
-}
-
-
 
 </style>
 </head>

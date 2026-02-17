@@ -95,13 +95,6 @@ setTimeout(()=>{
 </div>
 
 </body>
-
-<script>
-    document.getElementById("btnRegresar").addEventListener("click", function() {
-        window.location.href = "index.html";
-    });
-</script>
-
 </html>
 
 

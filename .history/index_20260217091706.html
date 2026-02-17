@@ -204,19 +204,15 @@
     <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- Botón flotante de agendar cita -->
-<div class="contenedor-cita">
-    
-    <div class="mensaje-cita" id="mensajeCita">
-        ¿Quieres agendar una cita?
-    </div>
+<!-- Botón flotante -->
+<a href="formulario.html" class="btn-cita-flotante" id="btnCita">
+    📅
+</a>
 
-    <a href="formulario.php" class="btn-cita">
-        <i class="fa-solid fa-calendar-check"></i>
-    </a>
-
+<!-- Mensaje emergente -->
+<div class="mensaje-cita" id="mensajeCita">
+    ¿Quieres agendar una cita?
 </div>
-
 
 <!-- ================= FIN ================= -->
 
@@ -227,20 +223,5 @@
 
 
 <script src="JS/main.js"></script>
-<script>
-window.addEventListener("load", function() {
-    const mensaje = document.getElementById("mensajeCita");
-
-    setTimeout(() => {
-        mensaje.classList.add("mostrar");
-    }, 1000);
-
-    setTimeout(() => {
-        mensaje.classList.remove("mostrar");
-    }, 9000);
-});
-</script>
-
-
 </body>
 </html>

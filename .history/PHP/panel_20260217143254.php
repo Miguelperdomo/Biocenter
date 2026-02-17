@@ -94,40 +94,48 @@ th{background:#0f172a;color:white;}
     }
 
 }
+/* ================= RESPONSIVE TABLA ================= */
 
-/* ================= TABLA RESPONSIVE ================= */
+@media (max-width: 768px){
 
-@media(max-width:700px){
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
-    }
-
-    th,td{
-        font-size:14px;
-        padding:10px;
-    }
-
+table, thead, tbody, th, td, tr{
+    display:block;
+    width:100%;
 }
 
-/* ================= BOTONES MOVIL ================= */
-
-@media(max-width:500px){
-
-    .btn{
-        display:block;
-        width:100%;
-        margin-bottom:5px;
-    }
-
+thead{
+    display:none;
 }
 
+tr{
+    background:white;
+    margin-bottom:15px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    padding:15px;
+}
+
+td{
+    border:none;
+    padding:10px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+}
+
+td::before{
+    content: attr(data-label);
+    font-weight:bold;
+    color:#0f172a;
+}
+
+.btn{
+    padding:8px 12px;
+    font-size:13px;
+}
+
+}
 
 
 </style>

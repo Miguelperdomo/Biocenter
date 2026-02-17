@@ -211,7 +211,7 @@
         ¿Quieres agendar una cita?
     </div>
 
-    <a href="formulario.php" class="btn-cita">
+    <a href="formulario.html" class="btn-cita">
         <i class="fa-solid fa-calendar-check"></i>
     </a>
 
@@ -228,19 +228,20 @@
 
 <script src="JS/main.js"></script>
 <script>
-window.addEventListener("load", function() {
-    const mensaje = document.getElementById("mensajeCita");
+    window.addEventListener("load", function() {
+        const mensaje = document.getElementById("mensajeCita");
 
-    setTimeout(() => {
-        mensaje.classList.add("mostrar");
-    }, 1000);
+        // Mostrar después de 2 segundos
+        setTimeout(() => {
+            mensaje.classList.add("mostrar");
+        }, 2000);
 
-    setTimeout(() => {
-        mensaje.classList.remove("mostrar");
-    }, 9000);
-});
+        // Ocultar después de 7 segundos
+        setTimeout(() => {
+            mensaje.classList.remove("mostrar");
+        }, 7000);
+    });
 </script>
-
 
 </body>
 </html>

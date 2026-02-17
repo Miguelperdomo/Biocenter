@@ -1,5 +1,5 @@
 <?php
-session_start();
+-ession_start();
 require "../conection/conexion.php";
 
 if(!isset($_SESSION['admin'])){
@@ -55,81 +55,6 @@ th{background:#0f172a;color:white;}
 .accept{background:#22c55e;}
 .cancel{background:#ef4444;}
 .delete{background:#64748b;}
-
-
-/* ================= RESPONSIVE PANEL ================= */
-
-@media(max-width: 900px){
-
-    body{
-        flex-direction:column;
-    }
-
-    .sidebar{
-        width:100%;
-        height:auto;
-        display:flex;
-        justify-content:space-around;
-        align-items:center;
-        padding:10px;
-    }
-
-    .sidebar h2{
-        display:none;
-    }
-
-    .sidebar a{
-        margin:0;
-        font-size:14px;
-        padding:10px;
-    }
-
-    .main{
-        padding:15px;
-    }
-
-    .cards{
-        grid-template-columns:1fr 1fr;
-        gap:10px;
-    }
-
-}
-
-/* ================= TABLA RESPONSIVE ================= */
-
-@media(max-width:700px){
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    table{
-        display:block;
-        overflow-x:auto;
-        white-space:nowrap;
-    }
-
-    th,td{
-        font-size:14px;
-        padding:10px;
-    }
-
-}
-
-/* ================= BOTONES MOVIL ================= */
-
-@media(max-width:500px){
-
-    .btn{
-        display:block;
-        width:100%;
-        margin-bottom:5px;
-    }
-
-}
-
-
-
 </style>
 </head>
 
