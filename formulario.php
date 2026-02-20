@@ -387,9 +387,32 @@ body{
 
 <form action="guardar_cita.php" method="POST">
 
+<!-- TIPO CLIENTE -->
 <div class="input-group">
+<label>Tipo de cliente</label>
+
+<div class="custom-select" id="clienteSelect">
+    <div class="select-box">Seleccione</div>
+
+    <div class="options">
+        <div data-value="Persona natural">Persona Natural</div>
+        <div data-value="Empresa">Empresa</div>
+    </div>
+
+    <input type="hidden" name="tipo_cliente" id="tipo_cliente">
+</div>
+</div>
+
+<!-- NOMBRE PERSONA -->
+<div class="input-group" id="campoNombre" style="display:none;">
 <label>Nombre completo</label>
-<input type="text" name="nombre" required>
+<input type="text" name="nombre">
+</div>
+
+<!-- NOMBRE EMPRESA -->
+<div class="input-group" id="campoEmpresa" style="display:none;">
+<label>Nombre de la empresa</label>
+<input type="text" name="empresa">
 </div>
 
 <div class="grid">
@@ -408,20 +431,7 @@ body{
 
 <div class="grid">
 
-<div class="input-group">
-<label>Tipo de cliente</label>
 
-<div class="custom-select" id="clienteSelect">
-    <div class="select-box">Seleccione</div>
-
-    <div class="options">
-        <div data-value="Persona natural">Persona Natural</div>
-        <div data-value="Empresa">Empresa</div>
-    </div>
-
-    <input type="hidden" name="tipo_cliente">
-</div>
-</div>
 
 
 <div class="input-group">
@@ -441,6 +451,11 @@ body{
 </div>
 </div>
 
+<!-- TIPO LABORATORIO -->
+<div class="input-group" id="campoLaboratorio" style="display:none;">
+<label>¿Qué examen de laboratorio se realizará?</label>
+<input type="text" name="tipo_laboratorio">
+</div>
 
 </div>
 
@@ -575,6 +590,50 @@ window.onclick = function(event) {
 }
 
 
+
+</script>
+
+<script>
+/* ================= CAMPOS DINAMICOS ================= */
+
+const tipoClienteInput = document.getElementById("tipo_cliente");
+const campoNombre = document.getElementById("campoNombre");
+const campoEmpresa = document.getElementById("campoEmpresa");
+
+const servicioInput = document.querySelector("input[name='servicio']");
+const campoLaboratorio = document.getElementById("campoLaboratorio");
+
+/* Detectar cambio tipo cliente */
+document.querySelectorAll("#clienteSelect .options div").forEach(opt=>{
+    opt.addEventListener("click",()=>{
+
+        setTimeout(()=>{
+            if(tipoClienteInput.value === "Empresa"){
+                campoEmpresa.style.display = "block";
+                campoNombre.style.display = "none";
+            }else{
+                campoEmpresa.style.display = "none";
+                campoNombre.style.display = "block";
+            }
+        },100);
+
+    });
+});
+
+/* Detectar servicio laboratorio */
+document.querySelectorAll("#servicioSelect .options div").forEach(opt=>{
+    opt.addEventListener("click",()=>{
+
+        setTimeout(()=>{
+            if(servicioInput.value === "Laboratorios"){
+                campoLaboratorio.style.display = "block";
+            }else{
+                campoLaboratorio.style.display = "none";
+            }
+        },100);
+
+    });
+});
 
 </script>
 

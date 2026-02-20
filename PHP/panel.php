@@ -273,6 +273,99 @@ th{background:#0f172a;color:white;}
     to{transform:scale(1);opacity:1}
 }
 
+
+/* ===== MODAL VER CITA ===== */
+.modalCita {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modalCita-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modalCita-body {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.modalCita-column {
+    flex: 1;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    color: #2d3748;
+    margin-bottom: 25px;
+    font-size: 24px;
+}
+
+.modalCita-column p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.modalCita-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .modalCita-body {
+        flex-direction: column;
+    }
+}
+
 </style>
 </head>
 
@@ -281,7 +374,6 @@ th{background:#0f172a;color:white;}
 <div class="sidebar">
 <h2>Biocenter</h2>
 <a href="panel.php">📊 Dashboard</a>
-<a href="citas_completas.php">📅 Citas</a>
 <a href="logout.php">🚪 Cerrar sesión</a>
 </div>
 
@@ -340,7 +432,9 @@ th{background:#0f172a;color:white;}
 <button class="btn accept" onclick="confirmar(<?=$row['id']?>,'confirmar')">Aceptar</button>
 <button class="btn cancel" onclick="confirmar(<?=$row['id']?>,'cancelar')">Cancelar</button>
 <button class="btn delete" onclick="confirmar(<?=$row['id']?>,'eliminar')">Eliminar</button>
+ <button class="btn-primary" onclick="verCita(<?=$row['id']?>)">Ver Cita</button>
 </td>
+
 </tr>
 
 <?php endwhile; ?>
@@ -397,6 +491,37 @@ th{background:#0f172a;color:white;}
 </div>
 
 
+<!-- MODAL VER CITA -->
+<div id="modalCita" class="modalCita">
+    <div class="modalCita-content">
+        <h3>Detalles de la Cita</h3>
+
+        <div class="modalCita-body">
+            <!-- Columna 1 -->
+            <div class="modalCita-column">
+                <p><strong>Nombre Completo:</strong> <span id="nombreCompleto"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+                <p><strong>Estado:</strong> <span id="estado"></span></p>
+            </div>
+
+            <!-- Columna 2 -->
+            <div class="modalCita-column">
+                <p><strong>Tipo de Servicio:</strong> <span id="tipoServicio"></span></p>
+                <p><strong>Fecha:</strong> <span id="fecha"></span></p>
+                <p><strong>Hora:</strong> <span id="hora"></span></p>
+                <p><strong>Fecha de Registro:</strong> <span id="fechaRegistro"></span></p>
+            </div>
+        </div>
+
+        <p><strong>Observaciones:</strong></p>
+        <p id="observaciones"></p>
+
+        <div class="modalCita-actions">
+            <button class="btn-primary" onclick="cerrarModalCita()">Aceptar</button>
+        </div>
+    </div>
+</div>
 
 <script>
 
@@ -487,6 +612,33 @@ function cerrarBienvenida(){
 
 </script>
 
+
+<script>
+    function verCita(id) {
+        // Obtener la cita desde la base de datos
+        fetch('obtener_cita.php?id=' + id)
+            .then(response => response.json())
+            .then(data => {
+                // Mostrar la información en el modal
+                document.getElementById('nombreCompleto').textContent = data.nombre_completo;
+                document.getElementById('email').textContent = data.email;
+                document.getElementById('telefono').textContent = data.telefono;
+                document.getElementById('tipoServicio').textContent = data.tipo_servicio;
+                document.getElementById('fecha').textContent = data.fecha;
+                document.getElementById('hora').textContent = data.hora;
+                document.getElementById('estado').textContent = data.estado;
+                document.getElementById('fechaRegistro').textContent = data.fecha_registro;
+                document.getElementById('observaciones').textContent = data.observaciones;
+
+                // Mostrar el modal
+                document.getElementById('modalCita').style.display = 'flex';
+            });
+    }
+
+    function cerrarModalCita() {
+        document.getElementById('modalCita').style.display = 'none';
+    }
+</script>
 
 </body>
 </html>
